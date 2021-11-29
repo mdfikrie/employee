@@ -8,7 +8,7 @@ void main() {
   runApp(
     GetMaterialApp(
       title: "Employee",
-      initialRoute: Routes.HOME,
+      initialRoute: Routes.LOGIN,
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
     ),
