@@ -1,4 +1,5 @@
 import 'package:employee/app/modules/home/controllers/home_controller.dart';
+import 'package:employee/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,10 @@ class ListUser extends GetView<HomeController> {
       () => ListView.builder(
         itemCount: controller.allUser.length,
         itemBuilder: (context, index) => ListTile(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(Routes.DETAIL_CONTACT,
+                arguments: controller.allUser[index]['id']);
+          },
           leading: Container(
             height: 60,
             width: 60,
