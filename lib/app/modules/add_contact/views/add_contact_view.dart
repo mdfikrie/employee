@@ -14,11 +14,13 @@ class AddContactView extends GetView<AddContactController> {
         backgroundColor: Color(0xFF1c2e46),
         actions: [
           TextButton(
-            onPressed: () {
-              controller.save(
+            onPressed: () async {
+              await controller.save(
                 controller.username.text,
                 controller.email.text,
+                controller.job.text,
               );
+              controller.isShowResponse.value = true;
             },
             child: Text(
               "SAVE",
@@ -64,7 +66,7 @@ class AddContactView extends GetView<AddContactController> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 TextField(
                   controller: controller.email,
@@ -86,20 +88,45 @@ class AddContactView extends GetView<AddContactController> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: controller.job,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.work),
+                    hintText: "Job",
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    focusColor: Color(0xFF1c2e46),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 20,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 30,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ElevatedButton(
-              onPressed: () {
-                controller.save(
+              onPressed: () async {
+                await controller.save(
                   controller.username.text,
                   controller.email.text,
+                  controller.job.text,
                 );
+                controller.isShowResponse.value = true;
               },
               child: Text("SAVE"),
               style: ElevatedButton.styleFrom(
@@ -110,6 +137,29 @@ class AddContactView extends GetView<AddContactController> {
                 padding: EdgeInsets.symmetric(vertical: 15),
               ),
             ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text("Response:"),
+          ),
+          Obx(
+            () => controller.isShowResponse.isTrue
+                ? Container(
+                    margin: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ListTile(
+                      title: Text("${controller.userBaru['name']}"),
+                      subtitle: Text("${controller.userBaru['email']}"),
+                      trailing: Text("${controller.userBaru['job']}"),
+                    ),
+                  )
+                : SizedBox(),
           ),
         ],
       ),

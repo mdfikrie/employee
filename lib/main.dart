@@ -10,6 +10,7 @@ void main() {
       title: "Employee",
       initialRoute: Routes.HOME,
       getPages: AppPages.routes,
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
