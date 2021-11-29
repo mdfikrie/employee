@@ -1,4 +1,5 @@
 import 'package:employee/app/modules/home/views/components/list_user.dart';
+import 'package:employee/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
@@ -19,7 +20,9 @@ class HomeView extends GetView<HomeController> {
       ),
       body: ListUser(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(Routes.ADD_CONTACT);
+        },
         backgroundColor: Color(0xFF1c2e46),
         child: Icon(
           Icons.add,

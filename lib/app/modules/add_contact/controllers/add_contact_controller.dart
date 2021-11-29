@@ -1,20 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class AddContactController extends GetxController {
-  //TODO: Implement AddContactController
+  late TextEditingController username;
+  late TextEditingController email;
 
-  final count = 0.obs;
   @override
   void onInit() {
+    username = TextEditingController();
+    email = TextEditingController();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void save(String username, String email) {
+    print(username);
+    print(email);
   }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }
