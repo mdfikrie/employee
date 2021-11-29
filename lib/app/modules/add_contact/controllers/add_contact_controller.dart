@@ -36,7 +36,6 @@ class AddContactController extends GetxController {
         'name': username,
         'email': email,
         'job': job,
-        'avatar': "avatar.jpg"
       };
       final response = await http.post(url, body: body);
       final result = json.decode(response.body);

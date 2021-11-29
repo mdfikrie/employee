@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fiktech.employee">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="employee"
         android:icon="@mipmap/ic_launcher">
