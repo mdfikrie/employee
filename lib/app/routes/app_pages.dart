@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:employee/app/modules/add_contact/bindings/add_contact_binding.dart';
+import 'package:employee/app/modules/add_contact/views/add_contact_view.dart';
 import 'package:employee/app/modules/detail_contact/bindings/detail_contact_binding.dart';
 import 'package:employee/app/modules/detail_contact/views/detail_contact_view.dart';
 import 'package:employee/app/modules/home/bindings/home_binding.dart';
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.DETAIL_CONTACT,
       page: () => DetailContactView(),
       binding: DetailContactBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_CONTACT,
+      page: () => AddContactView(),
+      binding: AddContactBinding(),
     ),
   ];
 }
